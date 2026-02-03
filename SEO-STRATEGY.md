@@ -1,6 +1,6 @@
 # SEO Strategy for npmx.dev
 
-This document outlines the technical SEO strategy adopted for `npmx.dev`, considering its nature as a dynamic SSR application with infinite content (the npm registry) and current internationalization constraints.
+This document outlines the technical SEO strategy adopted for `npmx.dev`, considering its nature as a dynamic SSR application with near infinite content (the npm registry) and current internationalization constraints.
 
 ## 1. Indexing & Crawling
 
