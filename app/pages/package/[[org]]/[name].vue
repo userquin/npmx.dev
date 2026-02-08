@@ -1172,6 +1172,7 @@ onKeyStroke(
           <PackageInstallScripts
             v-if="displayVersion?.installScripts"
             :package-name="pkg.name"
+            :version="displayVersion.version"
             :install-scripts="displayVersion.installScripts"
           />
 
