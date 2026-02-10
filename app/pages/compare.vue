@@ -136,6 +136,8 @@ useSeoMeta({
         </p>
       </header>
 
+      <JSRequired />
+
       <!-- Package selector -->
       <section class="mb-8" aria-labelledby="packages-heading">
         <h2 id="packages-heading" class="text-xs text-fg-subtle uppercase tracking-wider mb-3">
@@ -304,7 +306,8 @@ useSeoMeta({
 
         <template #fallback>
           <!-- Generic loading state for the whole grid section if needed, or rely on inner skeletons -->
-          <div class="mt-10 space-y-4">
+          <div class="mt-10 space-y-4" role="status" :aria-label="$t('compare.packages.loading')">
+            <span class="sr-only">{{ $t('compare.packages.loading') }}</span>
             <SkeletonBlock class="w-32 h-4 mb-4" />
             <div class="border border-border rounded-lg p-4 space-y-4">
               <div class="flex gap-4">
