@@ -74,15 +74,17 @@ export function usePackageComparison(packageNames: MaybeRefOrGetter<string[]>) {
   const compactNumberFormatter = useCompactNumberFormatter()
   const bytesFormatter = useBytesFormatter()
   const packages = computed(() => toValue(packageNames))
-
-  const ready = shallowRef(false)
+  const nuxt = useNuxtApp()
 
   // Cache of fetched data by package name (source of truth)
   const cache = shallowRef(new Map<string, PackageComparisonData>())
 
   // Derived array in current package order
   const packagesData = computed(
-    () => ready.value && packages.value.map(name => cache.value.get(name) ?? null),
+    () =>
+      import.meta.client &&
+      !nuxt.isHydrating &&
+      packages.value.map(name => cache.value.get(name) ?? null),
   )
 
   const status = shallowRef<'idle' | 'pending' | 'success' | 'error'>('idle')
@@ -253,22 +255,21 @@ export function usePackageComparison(packageNames: MaybeRefOrGetter<string[]>) {
 
   // Watch for package changes and refetch (client-side only)
   if (import.meta.client) {
-    useNuxtApp().hook('app:suspense:resolve', () => {
-      ready.value = true
-      watch(
-        packages,
-        newPackages => {
+    watch(
+      () => [nuxt.isHydrating, packages.value] as const,
+      ([isHydrating, newPackages]) => {
+        if (!isHydrating) {
           fetchPackages(newPackages)
-        },
-        { immediate: true },
-      )
-    })
+        }
+      },
+      { immediate: true },
+    )
   }
 
   // Compute values for each facet
   function getFacetValues(facet: ComparisonFacet): (FacetValue | null)[] {
     // If not ready or no data, return array of nulls to render skeletons
-    if (!ready.value || !packagesData.value || packagesData.value.length === 0) {
+    if (!packagesData.value || packagesData.value.length === 0) {
       return Array.from({ length: packages.value.length }, () => null)
     }
 
