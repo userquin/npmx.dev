@@ -2,8 +2,6 @@ import process from 'node:process'
 import { currentLocales } from './config/i18n'
 import { isCI, provider } from 'std-env'
 
-console.log(!isCI || (provider !== 'vercel' && !!process.env.VALIDATE_HTML))
-
 export default defineNuxtConfig({
   modules: [
     '@unocss/nuxt',
