@@ -325,14 +325,14 @@ ${template}`
             <template v-if="error">
               <tr>
                 <td colspan="2" class="py-4 px-2 text-center text-red-500">
-                  {{ $t('common.error') }}
+                  {{ $t('translation_status.table.error') }}
                 </td>
               </tr>
             </template>
             <template v-else-if="fetchStatus === 'pending'">
               <tr>
                 <td colspan="2" class="py-4 px-2 text-center text-fg-muted">
-                  {{ $t('common.loading') }}
+                  {{ $t('translation_status.table.loading') }}
                 </td>
               </tr>
             </template>
