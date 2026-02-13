@@ -1150,6 +1150,7 @@
     "table": {
       "file": "File",
       "status": "Status",
+      "error": "Error while loading file list.",
       "loading": "{spinner} Loading translation files...",
       "empty": "No files found",
       "file_link": "Edit {file} ({lang}) on GitHub"

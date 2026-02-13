@@ -1147,6 +1147,7 @@
     "table": {
       "file": "Archivo",
       "status": "Estado",
+      "error": "Error cargando la lista de archivos.",
       "loading": "{spinner} Cargando archivos de traducción...",
       "empty": "No se encontraron archivos",
       "file_link": "Editar {file} ({lang}) en GitHub"

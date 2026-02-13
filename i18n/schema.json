@@ -3454,6 +3454,9 @@
             "status": {
               "type": "string"
             },
+            "error": {
+              "type": "string"
+            },
             "loading": {
               "type": "string"
             },
