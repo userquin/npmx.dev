@@ -1137,7 +1137,7 @@
     "p1_lang": "American English (en-US)",
     "p1_count": "0 messages | 1 message |{count} messages",
     "p2": "Before starting, please read our {guide} to learn about our translation process and how you can get involved.",
-    "guide": "localization (i18n) guide",
+    "guide": "localisation (i18n) guide",
     "by_locale": "Translation progress by locale",
     "by_file": "Translation progress by file",
     "locale_summary": "{name} ({id})",
